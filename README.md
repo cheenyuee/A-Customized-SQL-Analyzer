@@ -1,2 +1,3 @@
-# A-Customed-SQL-Analyzer
-This is a customed SQL analyzer based on Apache-Calcite
+# A-Customized-SQL-Analyzer
+This is a CustomizedSQL analyzer based on Apache-Calcite
+
