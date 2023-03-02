@@ -2,7 +2,7 @@ data: {
 
   parser: {
     # 包目录
-    package: "org.apache.calcite.sql.parser.impl",
+    package: "Customized.parser.impl",
     # 类文件
     class: "CustomizedSqlParserImpl",
 

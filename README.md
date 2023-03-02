@@ -18,6 +18,16 @@ If you want to design your own SQL-parser, you can do the following steps:
 
 - edit the files in the directory called codegen.
 
+  ```java
+  // 设置生成的包目录和类名
+  parser: {
+      # 包目录
+      package: "Customized.parser.impl",
+      # 类名
+      class: "CustomizedSqlParserImpl",
+  }
+  ```
+
 - edit pom.xml and set the file directory.
 
   ```markdown
@@ -52,7 +62,7 @@ If you want to design your own SQL-parser, you can do the following steps:
   Then, you can import the *CustomizedSqlParserImpl* as your own SQL-parser in your code.
 
   ```java
-  import org.apache.calcite.sql.parser.impl.CustomizedSqlParserImpl;
+  import Customized.parser.impl.CustomizedSqlParserImpl;
   SqlParser.Config mysqlConfig = SqlParser.configBuilder().setParserFactory(CustomizedSqlParserImpl.FACTORY).setLex(Lex.MYSQL).build();
   // CustomizedSqlParserImpl是自定义的解析工厂
   ```
@@ -71,7 +81,7 @@ We select some important files for detailed description.
     			|-- config.fmpp # 
     		|-- java/ # the java code files
     			|-- CustomizedAnalyzer # the main class
-    			|-- org.apache.calcite.sql.parser.impl # the customized SQL parser package
+    			|-- Customized.parser.impl # the customized SQL parser package
  
 |-- Documents/  # the documents and references
 ```

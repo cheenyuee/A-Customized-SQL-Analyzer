@@ -21,7 +21,6 @@ import org.apache.calcite.sql.SqlNode;
 import org.apache.calcite.sql.dialect.OracleSqlDialect;
 import org.apache.calcite.sql.parser.SqlParseException;
 import org.apache.calcite.sql.parser.SqlParser;
-import org.apache.calcite.sql.parser.impl.CustomizedSqlParserImpl;
 import org.apache.calcite.sql.type.SqlTypeFactoryImpl;
 import org.apache.calcite.sql.type.SqlTypeName;
 import org.apache.calcite.sql.validate.SqlValidator;
@@ -29,12 +28,14 @@ import org.apache.calcite.sql.validate.SqlValidatorUtil;
 import org.apache.calcite.sql2rel.SqlToRelConverter;
 import org.apache.calcite.tools.*;
 import java.util.Properties;
+// 导入定制的CustomizedSqlParserImpl
+import Customized.parser.impl.CustomizedSqlParserImpl;
 
 
 public class CustomizedAnalyzer {
 
     public static void main(String[] args) throws SqlParseException {
-        String sql = "select name from student where id = 857 and age = 888 group by name";
+        String sql = "select name from student where id = 857 and age = 857 group by name";
 
         SqlNode sqlNode = parserSql(sql);  // SQL解析
         System.out.println(sqlNode.toSqlString(OracleSqlDialect.DEFAULT));// 还原某个方言的SQL
@@ -127,8 +128,5 @@ public class CustomizedAnalyzer {
         hepPlanner.setRoot(relNode);
         RelNode bestRelNode = hepPlanner.findBestExp();
         return bestRelNode;
-
     }
-
-
 }
